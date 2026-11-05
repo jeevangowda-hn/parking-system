@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARKWISE - Booking Confirmation Pass</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#68dba9",
+            "on-surface": "#191c1d",
+            "tertiary": "#545c72",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#68dba9",
+            "primary-fixed": "#85f8c4",
+            "on-surface-variant": "#3d4a42",
+            "surface-tint": "#006c4a",
+            "background": "#f8f9fa",
+            "surface-container": "#edeeef",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#38485d",
+            "on-tertiary-fixed-variant": "#3f465c",
+            "tertiary-fixed": "#dae2fd",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9fa",
+            "on-tertiary-fixed": "#131b2e",
+            "on-background": "#191c1d",
+            "inverse-surface": "#2e3132",
+            "surface-container-highest": "#e1e3e4",
+            "on-primary-fixed-variant": "#005137",
+            "secondary-fixed-dim": "#b7c8e1",
+            "surface-variant": "#e1e3e4",
+            "error": "#ba1a1a",
+            "tertiary-container": "#6c748b",
+            "surface-container-low": "#f3f4f5",
+            "inverse-on-surface": "#f0f1f2",
+            "primary-container": "#00855d",
+            "surface-container-high": "#e7e8e9",
+            "secondary-container": "#d0e1fb",
+            "on-secondary-container": "#54647a",
+            "surface": "#f8f9fa",
+            "on-tertiary-container": "#fefcff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "primary": "#006948",
+            "on-primary-fixed": "#002114",
+            "tertiary-fixed-dim": "#bec6e0",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#0b1c30",
+            "on-primary-container": "#f5fff7",
+            "surface-dim": "#d9dadb",
+            "outline-variant": "#bccac0",
+            "on-secondary": "#ffffff",
+            "secondary": "#505f76",
+            "secondary-fixed": "#d3e4fe",
+            "outline": "#6d7a72"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-2xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.75rem",
+            "space-xs": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-3xl": "4rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "display-lg": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Manrope"],
+            "display-lg-mobile": ["Manrope"],
+            "slot-id": ["Manrope"],
+            "headline-sm": ["Manrope"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "numeric-metric": ["Manrope"],
+            "headline-xl": ["Manrope"],
+            "headline-xl-mobile": ["Manrope"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "slot-id": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "numeric-metric": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .ticket-notch-left {
+      position: absolute;
+      left: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #f8f9fa;
+      border-right: 1px solid #bccac0;
+      box-shadow: inset -2px 0 3px rgba(0, 0, 0, 0.04);
+    }
+    .ticket-notch-right {
+      position: absolute;
+      right: -12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #f8f9fa;
+      border-left: 1px solid #bccac0;
+      box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.04);
+    }
+    .perforation-line {
+      border-bottom: 2px dashed #bccac0;
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .pulse-ring {
+      animation: pulseRing 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ========================================================================= -->
+<!-- TOP NAV BAR (Shared Component JSON mapped with exact specs & tokens)       -->
+<!-- ========================================================================= -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none docked full-width top-0 sticky z-40">
+<div class="w-full px-6 py-3 flex items-center justify-between mx-auto">
+<!-- Left: Brand Anchor & Global Search -->
+<div class="flex items-center gap-6">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="local_parking">local_parking</span>
+</span>
+<span>PARKWISE</span>
+</a>
+<!-- Search Bar on left (from Shared Component JSON schema) -->
+<div class="hidden lg:flex items-center bg-surface-container-low rounded-lg px-3 py-1.5 border border-outline-variant/60 focus-within:border-primary transition-colors w-72">
+<span class="material-symbols-outlined text-outline mr-2 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-0 p-0 text-body-sm font-body-sm focus:ring-0 text-on-surface w-full placeholder:text-outline" placeholder="Search facilities, bays or city hubs..." type="text"/>
+<kbd class="text-[10px] text-outline bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Center: Navigation Links (Active mapping: 'My Bookings' since this is confirmation pass) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface dark:hover:text-inverse-on-surface pb-1 text-label-md font-label-md transition-colors duration-150" href="#">Find Parking</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface dark:hover:text-inverse-on-surface pb-1 text-label-md font-label-md transition-colors duration-150" href="#">Interactive Map</a>
+<a class="border-b-2 border-primary dark:border-inverse-primary text-primary dark:text-inverse-primary font-semibold pb-1 text-label-md font-label-md" href="#">My Bookings</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface dark:hover:text-inverse-on-surface pb-1 text-label-md font-label-md transition-colors duration-150" href="#">Rates &amp; Passes</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-surface dark:hover:text-inverse-on-surface pb-1 text-label-md font-label-md transition-colors duration-150" href="#">Support</a>
+</nav>
+<!-- Right: Trailing Actions, Notification & Profile -->
+<div class="flex items-center gap-3">
+<button aria-label="Notifications" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Help" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1 hidden sm:block"></div>
+<a class="hidden sm:inline-flex items-center text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors px-2 py-1" href="#">
+          Sign In
+        </a>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-3.5 py-1.5 rounded-lg transition-transform duration-100 active:scale-95 shadow-sm flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base" data-icon="add_circle">add_circle</span>
+<span>Reserve Slot</span>
+</button>
+<!-- Customer Profile Avatar -->
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center justify-center border border-outline-variant ml-1 overflow-hidden" title="Customer account avatar profile">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of a professional modern customer profile portrait illuminated by soft indoor ambient architectural light with a clean neutral studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRS4W-t7J37ogowNDePWsFKTcNsX7L2f7b9EaxlN5sqOEpRDOPAZSc2IxuAaDWlJoeKi-cVFApcEcr6f8uo1uPWWwOK_XLLOJTfvk0AEp1FM6Hsk97huroK4-RGAxwPQJg4bJs9CqrBfRco4JIwn_7q0rJnCwF7wL_1h1n3bEx0MhIwR2sYJpoB13UeSc0oaHxtn3exsFT2jcwHwFKVuc7hbj1jPS0U1JwdC19N08"/>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- BREADCRUMBS & CONTEXT PROGRESS BAR                                        -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest border-b border-outline-variant/70">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex flex-wrap items-center justify-between gap-3 text-body-sm font-body-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-on-surface-variant">
+<span class="hover:text-primary cursor-pointer transition-colors">Find Parking</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Bay Selection</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+            Booking Confirmation
+          </span>
+</nav>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified_user">verified_user</span>
+<span>Transaction Guaranteed by PARKWISE Telemetry</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CANVAS                                                     -->
+<!-- ========================================================================= -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+<!-- SUCCESS HERO HEADER -->
+<div class="mb-8">
+<div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-[#ECFDF5] border border-primary/20 text-primary mb-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="text-label-md font-label-md font-semibold text-primary">Booking Successfully Confirmed!</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">Active Reservation Pass #PW-84920</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1 max-w-2xl">
+            Your parking bay is reserved and locked in our facility system. Present your digital QR pass at the entrance gate barrier or sync to your mobile wallet.
+          </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest border border-outline-variant hover:border-outline text-on-surface rounded-lg text-label-md font-label-md transition-all active:scale-95 shadow-sm" onclick="window.print()">
+<span class="material-symbols-outlined text-base" data-icon="print">print</span>
+<span>Print Pass</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-label-md font-label-md transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="download">download</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 2-COLUMN ASYMMETRIC BENTO GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ===================================================================== -->
+<!-- LEFT SECTION: BOARDING PASS & FACILITY ROUTE (Cols: 7)                -->
+<!-- ===================================================================== -->
+<div class="lg:col-span-7 space-y-6">
+<!-- DIGITAL PARKING BOARDING PASS CARD -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/80 shadow-md relative overflow-hidden transition-all hover:shadow-lg">
+<!-- Pass Top Header Ribbon -->
+<div class="bg-inverse-surface text-inverse-on-surface px-6 py-4 flex items-center justify-between border-b border-outline">
+<div class="flex items-center gap-3">
+<span class="p-1.5 rounded-md bg-white/10 text-inverse-primary">
+<span class="material-symbols-outlined text-lg" data-icon="local_parking">local_parking</span>
+</span>
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline-variant block">Access Zone &amp; Level</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-white">PARKWISE METROPOLITAN HUB - LEVEL G</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold tracking-wide">
+              TERMINAL 1 NORTH
+            </span>
+</div>
+<!-- Main Pass Slot & QR Visual Section -->
+<div class="p-6 md:p-8">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6">
+<!-- Massive Bay Slot Code Callout -->
+<div class="text-center sm:text-left space-y-2">
+<span class="text-label-sm font-label-sm uppercase text-outline tracking-wider block">Assigned Bay Allocation</span>
+<div class="flex items-baseline gap-3">
+<span class="text-display-lg font-display-lg text-primary tracking-tight font-extrabold">BAY A-14</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container/70 text-on-secondary-fixed-variant text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="electric_car">electric_car</span>
+<span>EV 150kW Ultra Fast-Charge</span>
+</div>
+</div>
+<!-- High-Fidelity Contactless QR Scanner Code Block -->
+<div class="flex flex-col items-center p-4 bg-surface rounded-xl border border-outline-variant/80 text-center w-full sm:w-auto">
+<!-- Clean Vectorized QR Code Representation -->
+<div class="w-36 h-36 bg-white p-2.5 rounded-lg border border-outline-variant flex items-center justify-center shadow-inner relative group cursor-pointer">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<!-- Standard QR corner locators -->
+<path d="M0,0 h30 v30 h-30 z M5,5 h20 v20 h-20 z M10,10 h10 v10 h-10 z"></path>
+<path d="M70,0 h30 v30 h-30 z M75,5 h20 v20 h-20 z M80,10 h10 v10 h-10 z"></path>
+<path d="M0,70 h30 v30 h-30 z M5,75 h20 v20 h-20 z M10,80 h10 v10 h-10 z"></path>
+<!-- Data module matrix pattern -->
+<rect height="6" width="6" x="36" y="6"></rect>
+<rect height="6" width="14" x="46" y="6"></rect>
+<rect height="8" width="8" x="36" y="16"></rect>
+<rect height="6" width="10" x="52" y="16"></rect>
+<rect height="6" width="12" x="6" y="36"></rect>
+<rect height="12" width="12" x="22" y="36"></rect>
+<rect height="6" width="6" x="38" y="32"></rect>
+<rect height="8" width="8" x="48" y="30"></rect>
+<rect height="6" width="8" x="60" y="34"></rect>
+<rect height="8" width="16" x="74" y="36"></rect>
+<rect height="12" width="8" x="6" y="52"></rect>
+<rect height="6" width="10" x="20" y="52"></rect>
+<rect height="12" width="12" x="36" y="44"></rect>
+<rect height="6" width="6" x="54" y="46"></rect>
+<rect height="6" width="12" x="66" y="48"></rect>
+<rect height="10" width="10" x="84" y="48"></rect>
+<rect height="8" width="8" x="36" y="62"></rect>
+<rect height="14" width="8" x="50" y="60"></rect>
+<rect height="6" width="6" x="64" y="60"></rect>
+<rect height="6" width="18" x="76" y="64"></rect>
+<rect height="6" width="12" x="36" y="78"></rect>
+<rect height="14" width="12" x="52" y="78"></rect>
+<rect height="8" width="8" x="70" y="76"></rect>
+<rect height="14" width="12" x="82" y="78"></rect>
+<!-- Center emblem notch -->
+<circle cx="50" cy="50" fill="#006948" r="7"></circle>
+</svg>
+<div class="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-on-surface text-white text-[10px] px-2 py-0.5 rounded shadow">Click to Enlarge</span>
+</div>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span>Scan at Entrance Gate 02</span>
+</div>
+<span class="text-[11px] text-outline mt-0.5">Barrier reads license plate or optical QR</span>
+</div>
+</div>
+<!-- Perforation notch division line -->
+<div class="relative py-4 my-2 flex items-center">
+<div class="ticket-notch-left"></div>
+<div class="w-full perforation-line"></div>
+<div class="ticket-notch-right"></div>
+</div>
+<!-- Key Booking Metadata Grid (2x3 Matrix) -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-4 pt-2">
+<!-- Meta 1 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Booking Ref</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">#PW-84920</span>
+</div>
+<!-- Meta 2 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Pass Status</span>
+<span class="inline-flex items-center gap-1.5 text-label-md font-label-md font-bold text-primary">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                  CONFIRMED &amp; ACTIVE
+                </span>
+</div>
+<!-- Meta 3 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Reservation Date</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">Friday, Oct 24, 2025</span>
+</div>
+<!-- Meta 4 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Active Window</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">09:00 AM – 01:00 PM</span>
+<span class="text-label-sm font-label-sm text-outline block">(4h 00m reserved)</span>
+</div>
+<!-- Meta 5 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Assigned Vehicle</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">White Model 3</span>
+<span class="inline-block bg-surface-container px-1.5 py-0.5 rounded text-[11px] font-mono text-on-surface-variant font-bold border border-outline-variant">CA 7XYZ89</span>
+</div>
+<!-- Meta 6 -->
+<div>
+<span class="text-label-sm font-label-sm text-outline block">Dedicated Entry Barrier</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">North Ramp Barrier #2</span>
+<span class="text-label-sm font-label-sm text-primary block">Lane 2B (Clearance 2.2m)</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Verification Footer -->
+<div class="bg-surface-container-low px-6 py-3.5 border-t border-outline-variant/60 flex flex-wrap items-center justify-between gap-3 text-label-sm font-label-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-primary" data-icon="lock">lock</span>
+<span>Encrypted cryptogram active for automatic gate lift</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-outline">Terminal ID: PW-NW-L0-BAY14</span>
+</div>
+</div>
+</div>
+<!-- FACILITY NAVIGATION & WALKING ROUTE GUIDE -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="directions">directions</span>
+</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">Facility Navigation &amp; Pedestrian Route</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Step-by-step guidance from Bay A-14 to Metropolitan Hub concourse.</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary font-semibold bg-[#ECFDF5] px-2.5 py-1 rounded-md border border-primary/20">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>2 min walk to Elevators</span>
+</span>
+</div>
+<!-- Interactive Map Preview Graphic with Walking Vector -->
+<div class="relative w-full h-56 rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-container-high mb-4">
+<!-- Architectural Parking Schema Background Pattern -->
+<div class="absolute inset-0 opacity-80" style="background-image: radial-gradient(#bccac0 1px, transparent 1px); background-size: 16px 16px;"></div>
+<!-- Schematic Bay Rows & Lane Vector -->
+<div class="absolute inset-0 p-4 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between items-center text-[11px] font-mono text-outline uppercase font-semibold">
+<span>North Ramp Vector [Lane 2B]</span>
+<span>Pedestrian Lobby Concourse [East Wing]</span>
+</div>
+<!-- Graphical Blueprint Path -->
+<svg class="w-full h-28 my-auto" fill="none" viewbox="0 0 600 120">
+<!-- Parking aisle line -->
+<path d="M 20 60 L 580 60" stroke="#bccac0" stroke-dasharray="6 6" stroke-width="2"></path>
+<!-- Bay marker boxes -->
+<rect fill="#ffffff" height="40" rx="4" stroke="#6d7a72" stroke-width="1.5" width="40" x="60" y="10"></rect>
+<text fill="#3d4a42" font-family="Manrope" font-size="11" font-weight="bold" text-anchor="middle" x="80" y="35">A-12</text>
+<!-- Active Bay A-14 (Highlighted Emerald) -->
+<rect fill="#D1FAE5" height="42" rx="4" stroke="#006948" stroke-width="2.5" width="46" x="120" y="10"></rect>
+<text fill="#006948" font-family="Manrope" font-size="11" font-weight="bold" text-anchor="middle" x="143" y="35">A-14</text>
+<circle cx="143" cy="46" fill="#006948" r="3"></circle>
+<rect fill="#ffffff" height="40" rx="4" stroke="#6d7a72" stroke-width="1.5" width="40" x="186" y="10"></rect>
+<text fill="#3d4a42" font-family="Manrope" font-size="11" font-weight="bold" text-anchor="middle" x="206" y="35">A-16</text>
+<!-- Pedestrian Walking Path to Elevator (Green Pulsing Dashed Line) -->
+<path d="M 143 52 L 143 85 Q 143 95 155 95 L 470 95 Q 485 95 485 75 L 485 35" fill="none" stroke="#006948" stroke-dasharray="5 5" stroke-width="3"></path>
+<!-- Lobby Elevator Destination Icon Pin -->
+<g transform="translate(470, 10)">
+<rect fill="#0F172A" height="32" rx="6" width="32" x="0" y="0"></rect>
+<circle cx="16" cy="16" fill="#68dba9" r="4"></circle>
+</g>
+<text fill="#0F172A" font-family="Inter" font-size="10" font-weight="600" text-anchor="middle" x="486" y="52">Elevators</text>
+</svg>
+<!-- Telemetry mini overlay tags -->
+<div class="flex items-center justify-between text-xs bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-outline-variant/60">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-semibold text-on-surface">Origin: Bay A-14 (Level G)</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-xs" data-icon="straight">straight</span>
+<span>140 ft East to Sky Bridge &amp; Main Elevators</span>
+</div>
+</div>
+</div>
+</div>
+<!-- GPS External Navigation Hand-off CTAs -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Drive directly to entrance gate:</span>
+<div class="flex items-center gap-2.5">
+<a class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md border border-outline-variant transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined text-base text-primary" data-icon="map">map</span>
+<span>Open in Apple Maps</span>
+</a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md border border-outline-variant transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined text-base text-primary" data-icon="explore">explore</span>
+<span>Open in Google Maps</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- ===================================================================== -->
+<!-- RIGHT SECTION: RESERVATION SUMMARY & PASS ACTIONS (Cols: 5)           -->
+<!-- ===================================================================== -->
+<div class="lg:col-span-5 space-y-6">
+<!-- PAYMENT & CHARGE BREAKDOWN CARD -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/60 mb-5">
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">Payment Receipt</h2>
+<span class="text-body-sm font-body-sm text-outline">Mastercard ending in •••• 4092</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#ECFDF5] text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span>PAID IN FULL</span>
+</span>
+</div>
+<!-- Itemized Rows -->
+<div class="space-y-3.5 text-body-md font-body-md">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Base Parking (4.0 hrs @ $4.50/hr)</span>
+<span class="font-medium text-on-surface font-slot-id">$18.00</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span>EV Charging Connectivity</span>
+<span class="text-[10px] bg-secondary-container px-1 rounded text-on-secondary-container font-semibold">Tier 1</span>
+</div>
+<span class="font-semibold text-primary">Included</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>City Mobility Surcharge</span>
+<span class="font-medium text-on-surface font-slot-id">$1.20</span>
+</div>
+<!-- Tax line -->
+<div class="flex items-center justify-between text-on-surface-variant pt-1 text-body-sm">
+<span>Applicable Municipal Sales Tax (0.00%)</span>
+<span class="font-medium text-on-surface font-slot-id">$0.00</span>
+</div>
+<div class="border-t border-outline-variant/70 pt-3.5 mt-2 flex items-baseline justify-between">
+<div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface block">Total Paid</span>
+<span class="text-label-sm font-label-sm text-outline">Includes instant digital invoice</span>
+</div>
+<span class="text-numeric-metric font-numeric-metric text-on-surface font-bold text-2xl tracking-tight">$19.20</span>
+</div>
+</div>
+<!-- Refund & Policy Micro-note -->
+<div class="mt-5 p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5" data-icon="info">info</span>
+<span>Free cancellation eligible up to 15 minutes before slot window begins (until 08:45 AM).</span>
+</div>
+</div>
+<!-- SELF-SERVICE ACTIONS & WALLET INTEGRATIONS -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/80 p-6 shadow-sm space-y-4">
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">Pass Management &amp; Sync</h2>
+<!-- Primary Wallet Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-black text-white hover:bg-neutral-800 transition-colors duration-150 active:scale-98 shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-md text-label-md font-semibold">Apple Wallet</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-surface-container-lowest border border-outline hover:bg-surface-container-low text-on-surface transition-colors duration-150 active:scale-98 shadow-sm">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="wallet">wallet</span>
+<span class="font-label-md text-label-md font-semibold">Google Wallet</span>
+</button>
+</div>
+<!-- Send Pass via SMS / Email -->
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors duration-150 text-left">
+<div class="flex items-center gap-3">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="send_to_mobile">send_to_mobile</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Send Pass to Email &amp; SMS</span>
+<span class="text-body-sm font-body-sm text-outline">Sent to customer mobile &amp; email on file</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Modify Time Window (Active/Contextual State) -->
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-outline-variant hover:border-outline transition-colors duration-150 text-left bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<span class="p-2 rounded-lg bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="more_time">more_time</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Modify Time Window</span>
+<span class="text-body-sm font-body-sm text-outline">Extend duration or shift entry time</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm font-semibold text-primary">Edit</span>
+</button>
+<!-- Cancel Reservation (Destructive Action Token) -->
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-[#FECDD3] bg-[#FFF1F2]/60 hover:bg-[#FFE4E6] text-left transition-colors duration-150">
+<div class="flex items-center gap-3">
+<span class="p-2 rounded-lg bg-white text-[#E11D48] shadow-2xs">
+<span class="material-symbols-outlined text-lg" data-icon="cancel">cancel</span>
+</span>
+<div>
+<span class="font-label-md text-label-md font-semibold text-[#E11D48] block">Cancel Reservation</span>
+<span class="text-body-sm font-body-sm text-error/80">Full refund eligible within next 3h 45m</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm font-bold text-[#E11D48]">Cancel</span>
+</button>
+</div>
+<!-- POST-CONFIRMATION SECONDARY REDIRECTIONS -->
+<div class="space-y-3 pt-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-low transition-colors duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined text-base" data-icon="table_chart">table_chart</span>
+<span>Go to My Bookings</span>
+</a>
+<div class="text-center">
+<a class="inline-flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span>Return to Customer Dashboard</span>
+</a>
+</div>
+</div>
+<!-- SUPPORT DISPATCH CALLOUT -->
+<div class="p-4 rounded-xl border border-outline-variant/60 bg-surface-container-low/80 flex items-center justify-between gap-3 text-body-sm font-body-sm">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+<div>
+<span class="font-semibold text-on-surface block">Need barrier or dispatch help?</span>
+<span class="text-outline text-label-sm">Facility Control Center is 24/7 active</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container text-label-sm font-label-sm font-semibold text-on-surface transition-colors">
+            Call Gate
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- FOOTER (Verbatim Shared Component JSON)                                   -->
+<!-- ========================================================================= -->
+<footer class="bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline w-full mt-auto">
+<div class="w-full max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary tracking-tight">PARKWISE</span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-outline-variant">
+          © 2025 PARKWISE Mobility Systems Inc. All rights reserved.
+        </p>
+</div>
+<!-- Links defined in Shared Components JSON -->
+<nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-label-sm font-label-sm">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Bay Blueprint API</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Enterprise SLA</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Facility Terms</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Security Compliance</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Dispatch Contact</a>
+</nav>
+</div>
+</footer>
+</body></html>
