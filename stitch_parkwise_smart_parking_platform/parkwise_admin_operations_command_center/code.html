@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARKWISE Central — Facility Operations Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#68dba9",
+            "on-surface": "#191c1d",
+            "tertiary": "#545c72",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#68dba9",
+            "primary-fixed": "#85f8c4",
+            "on-surface-variant": "#3d4a42",
+            "surface-tint": "#006c4a",
+            "background": "#f8f9fa",
+            "surface-container": "#edeeef",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#38485d",
+            "on-tertiary-fixed-variant": "#3f465c",
+            "tertiary-fixed": "#dae2fd",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9fa",
+            "on-tertiary-fixed": "#131b2e",
+            "on-background": "#191c1d",
+            "inverse-surface": "#2e3132",
+            "surface-container-highest": "#e1e3e4",
+            "on-primary-fixed-variant": "#005137",
+            "secondary-fixed-dim": "#b7c8e1",
+            "surface-variant": "#e1e3e4",
+            "error": "#ba1a1a",
+            "tertiary-container": "#6c748b",
+            "surface-container-low": "#f3f4f5",
+            "inverse-on-surface": "#f0f1f2",
+            "primary-container": "#00855d",
+            "surface-container-high": "#e7e8e9",
+            "secondary-container": "#d0e1fb",
+            "on-secondary-container": "#54647a",
+            "surface": "#f8f9fa",
+            "on-tertiary-container": "#fefcff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "primary": "#006948",
+            "on-primary-fixed": "#002114",
+            "tertiary-fixed-dim": "#bec6e0",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#0b1c30",
+            "on-primary-container": "#f5fff7",
+            "surface-dim": "#d9dadb",
+            "outline-variant": "#bccac0",
+            "on-secondary": "#ffffff",
+            "secondary": "#505f76",
+            "secondary-fixed": "#d3e4fe",
+            "outline": "#6d7a72"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-2xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.75rem",
+            "space-xs": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-3xl": "4rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "display-lg": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Manrope"],
+            "display-lg-mobile": ["Manrope"],
+            "slot-id": ["Manrope"],
+            "headline-sm": ["Manrope"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "numeric-metric": ["Manrope"],
+            "headline-xl": ["Manrope"],
+            "headline-xl-mobile": ["Manrope"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "slot-id": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "numeric-metric": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased flex min-h-screen overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SIDEBAR NAVIGATION (Derived from SideNavBar Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-inverse-surface text-inverse-on-surface flex flex-col justify-between p-4 z-50 border-r border-outline overflow-y-auto">
+<!-- Brand / Hub Header -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 pt-2">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md shadow-sm">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold tracking-wider text-inverse-on-surface">PARKWISE Central</span>
+<span class="font-body-sm text-body-sm text-outline-variant">Facility Operations Hub</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1.5 mt-2">
+<!-- Tab 1: Command Center (Active State Executed via Shared Component Rule) -->
+<a class="flex items-center gap-3 bg-surface-variant text-inverse-primary font-semibold border-l-4 border-inverse-primary pl-3 py-2.5 rounded-r transition-colors" href="#command-center">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Command Center</span>
+</a>
+<!-- Tab 2: Live Bay Blueprint -->
+<a class="flex items-center gap-3 text-outline-variant hover:text-inverse-on-surface hover:bg-surface-variant pl-4 py-2.5 rounded transition-colors duration-150" href="#blueprint">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Live Bay Blueprint</span>
+</a>
+<!-- Tab 3: Zones & Slots -->
+<a class="flex items-center gap-3 text-outline-variant hover:text-inverse-on-surface hover:bg-surface-variant pl-4 py-2.5 rounded transition-colors duration-150" href="#zones">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+<span class="font-label-md text-label-md">Zones &amp; Slots</span>
+</a>
+<!-- Tab 4: Reservation Roster -->
+<a class="flex items-center gap-3 text-outline-variant hover:text-inverse-on-surface hover:bg-surface-variant pl-4 py-2.5 rounded transition-colors duration-150" href="#roster">
+<span class="material-symbols-outlined" data-icon="table_chart">table_chart</span>
+<span class="font-label-md text-label-md">Reservation Roster</span>
+</a>
+<!-- Tab 5: Hourly Analytics -->
+<a class="flex items-center gap-3 text-outline-variant hover:text-inverse-on-surface hover:bg-surface-variant pl-4 py-2.5 rounded transition-colors duration-150" href="#analytics">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Hourly Analytics</span>
+</a>
+<!-- Tab 6: Facility Settings -->
+<a class="flex items-center gap-3 text-outline-variant hover:text-inverse-on-surface hover:bg-surface-variant pl-4 py-2.5 rounded transition-colors duration-150" href="#settings">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-label-md text-label-md">Facility Settings</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Sidebar Section & Controls -->
+<div class="flex flex-col gap-4 pt-4 border-t border-outline/30 mt-6">
+<!-- Emergency Bay Lock CTA -->
+<button class="w-full flex items-center justify-center gap-2 bg-error-container text-on-error-container font-label-md text-label-md py-2.5 px-4 rounded-lg hover:brightness-95 active:scale-99 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span>Emergency Bay Lock</span>
+</button>
+<!-- System Health Indicator -->
+<div class="flex items-center gap-2 px-2 py-1.5 rounded bg-surface-variant/40">
+<div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-outline-variant">Telemetry Active • 99.98% SLA</span>
+</div>
+<!-- Footer Nav Utility Tabs -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-2.5 text-outline-variant hover:text-inverse-on-surface px-2 py-1.5 rounded transition-colors" href="#audit">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">Audit Trail</span>
+</a>
+<a class="flex items-center gap-2.5 text-outline-variant hover:text-inverse-on-surface px-2 py-1.5 rounded transition-colors" href="#profile">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm">Admin Profile</span>
+</a>
+</div>
+<!-- User Profile Card -->
+<div class="flex items-center gap-3 px-2 py-2 mt-1 rounded-lg bg-surface-variant/30 border border-outline/20">
+<div class="w-9 h-9 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold text-xs uppercase tracking-wider">
+          AM
+        </div>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-inverse-on-surface truncate">Alex Mercer</span>
+<span class="font-label-sm text-label-sm text-outline-variant truncate">Operations Director</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN OPERATIONAL WORKSPACE (Offset by 288px for the fixed sidebar) -->
+<main class="ml-72 flex-1 flex flex-col min-w-0 bg-background">
+<!-- TOP HEADER BAR -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant/50 px-8 py-3.5 flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span>Operations</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span>Facility #04 Downtown</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Live Command Center</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-ping"></div>
+<span class="font-body-sm text-body-sm text-tertiary font-medium" id="liveTicker">
+            Live Sync • Friday, Oct 24, 2025 - 09:42:15 AM EST
+          </span>
+</div>
+</div>
+<!-- Global Header Actions -->
+<div class="flex items-center gap-3">
+<!-- Filter Selector -->
+<div class="relative">
+<button class="h-10 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span>All Zones (A-D)</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<!-- Export CSV Button -->
+<button class="h-10 px-3.5 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>Export Roster CSV</span>
+</button>
+<!-- Refresh Telemetry Button -->
+<button class="h-10 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-surface-tint active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+<span>Refresh Telemetry</span>
+</button>
+<!-- Notification Bell -->
+<div class="h-10 w-10 relative flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+</div>
+</header>
+<!-- CONTENT CANVAS -->
+<div class="p-8 flex flex-col gap-8 max-w-[1600px] w-full mx-auto">
+<!-- BANNER / TITLE SECTION -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/30 pb-6">
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm mb-2 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+<span>DEMONSTRATION OPERATIONAL DATA • CLOUD MOBILITY ENGINE v2.4</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Parking Operations Overview</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Live bay occupancy telemetry, reservation traffic, and real-time slot allocation for Downtown Metro Hub.</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/40">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sensors">sensors</span>
+<span>Hardware Latency: <strong>14ms</strong> (LoRaWAN Gateway Node 04)</span>
+</div>
+</div>
+<!-- 4 PRIMARY KPI METRIC CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- Metric 1: Capacity -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-outline transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-tertiary">Total Parking Capacity</span>
+<div class="font-numeric-metric text-numeric-metric text-on-surface mt-1">320 Bays</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-surface-container font-body-sm text-body-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Across 4 active zones • <strong>98% operational</strong></span>
+</div>
+</div>
+<!-- Metric 2: Live Occupied -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-outline transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-tertiary">Live Occupied Bays</span>
+<div class="font-numeric-metric text-numeric-metric text-on-surface mt-1">214</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-surface-container font-body-sm text-body-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold">66.8% Occupancy</span>
+<span class="text-tertiary">•</span>
+<span class="text-primary flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> +12% vs last hr
+            </span>
+</div>
+</div>
+<!-- Metric 3: Available Bays -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-outline transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-tertiary">Available Bays</span>
+<div class="font-numeric-metric text-numeric-metric text-primary mt-1">82</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-surface-container font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="electric_bolt">electric_bolt</span>
+<span>Instant walk-in &amp; reservation ready</span>
+</div>
+</div>
+<!-- Metric 4: Active Reservations -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-outline transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-tertiary">Active Reservations</span>
+<div class="font-numeric-metric text-numeric-metric text-secondary mt-1">24</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/30 flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-surface-container font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="schedule">schedule</span>
+<span>Scheduled arrivals in next 60 mins</span>
+</div>
+</div>
+</div>
+<!-- ANALYTICS ROW (Donut Chart & Hourly Demand Velocity) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Donut Chart Card (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Live Capacity Breakdown</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Instant bay assignment distribution</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="pie_chart">pie_chart</span>
+</div>
+<div class="py-6 flex flex-col sm:flex-row items-center justify-center gap-8">
+<!-- Custom High-Precision SVG Donut -->
+<div class="relative w-44 h-44 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 120 120">
+<!-- Background Base Track -->
+<circle cx="60" cy="60" fill="none" r="50" stroke="#EDEEEF" stroke-width="14"></circle>
+<!-- Occupied (67%) => dasharray = 314 * 0.67 = 210.38 -->
+<circle cx="60" cy="60" fill="none" r="50" stroke="#006948" stroke-dasharray="210.38 314" stroke-linecap="round" stroke-width="14"></circle>
+<!-- Reserved (7.5%) => dasharray = 23.55, offset = -210.38 -->
+<circle cx="60" cy="60" fill="none" r="50" stroke="#505F76" stroke-dasharray="23.55 314" stroke-dashoffset="-210.38" stroke-linecap="round" stroke-width="14"></circle>
+<!-- Available (25.5%) => dasharray = 80, offset = -233.93 -->
+<circle cx="60" cy="60" fill="none" r="50" stroke="#85F8C4" stroke-dasharray="80 314" stroke-dashoffset="-233.93" stroke-linecap="round" stroke-width="14"></circle>
+</svg>
+<!-- Center Callout -->
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-numeric-metric text-headline-xl font-bold text-on-surface">67%</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Occupied</span>
+</div>
+</div>
+<!-- Legend with metrics -->
+<div class="flex flex-col gap-3 min-w-[170px]">
+<div class="flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Occupied</span>
+</div>
+<div class="font-slot-id text-slot-id text-on-surface">214 (67%)</div>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Reserved</span>
+</div>
+<div class="font-slot-id text-slot-id text-on-surface">24 (7.5%)</div>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary-fixed"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Available</span>
+</div>
+<div class="font-slot-id text-slot-id text-on-surface">82 (25.5%)</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Utilization Threshold: <strong class="text-on-surface">Target 75%</strong></span>
+<span class="text-primary font-semibold">Normal Variance</span>
+</div>
+</div>
+<!-- Hourly Occupancy & Velocity Curve Card (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-container gap-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Hourly Occupancy &amp; Demand Velocity Curve</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Comparative telemetry against 30-day baseline</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg text-label-sm font-label-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Projected Peak: 11:30 AM (92%)</span>
+</div>
+</div>
+<!-- Bar Visualizer -->
+<div class="py-6 flex flex-col gap-4">
+<div class="h-44 w-full flex items-end justify-between gap-3 px-2 pt-4">
+<!-- 06:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">24%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 24%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">06:00</span>
+</div>
+<!-- 08:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">56%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 56%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">08:00</span>
+</div>
+<!-- 10:00 (Current / Peak Zone) -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative">
+<span class="font-label-sm text-label-sm text-primary font-bold">88%</span>
+<div class="w-full bg-primary rounded-t shadow-sm relative" style="height: 88%;">
+<div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary-fixed rounded-full"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">10:00</span>
+</div>
+<!-- 12:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">91%</span>
+<div class="w-full bg-surface-variant rounded-t group-hover:bg-primary-container transition-all" style="height: 91%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12:00</span>
+</div>
+<!-- 14:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">74%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 74%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14:00</span>
+</div>
+<!-- 16:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">62%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 62%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">16:00</span>
+</div>
+<!-- 18:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">48%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 48%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">18:00</span>
+</div>
+<!-- 20:00 -->
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-sm text-label-sm text-tertiary opacity-0 group-hover:opacity-100 transition-opacity">31%</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-primary-container transition-all" style="height: 31%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">20:00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant pt-2 border-t border-surface-container">
+<span class="font-body-sm text-body-sm">Peak Window: <strong>11:30 AM - 01:00 PM</strong> (Projected 92% capacity)</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="auto_graph">auto_graph</span> AI Dynamic Pricing Active
+            </span>
+</div>
+</div>
+</div>
+<!-- LIVE PARKING ZONE STATUS GRID -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Live Parking Zone Status</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time occupancy across physical sections</span>
+</div>
+<button class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1">
+<span>Configure Zone Thresholds</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Zone A -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-primary transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary">Level 0</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Zone A (Ground)</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-fixed/40 text-on-primary-fixed-variant">Normal</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div>
+<span class="font-numeric-metric text-headline-lg text-on-surface font-bold">42</span>
+<span class="font-body-sm text-body-sm text-tertiary">/ 60 Available</span>
+</div>
+<span class="font-label-md text-label-md text-primary">70% Occupied</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 70%;"></div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sensors: 60/60 Online</span>
+<button class="font-label-sm text-label-sm font-semibold text-primary hover:text-surface-tint">Manage Slots</button>
+</div>
+</div>
+<!-- Zone B -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-primary transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary">Level 1</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Zone B (First Floor)</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-fixed/40 text-on-primary-fixed-variant">Optimal</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div>
+<span class="font-numeric-metric text-headline-lg text-on-surface font-bold">28</span>
+<span class="font-body-sm text-body-sm text-tertiary">/ 60 Available</span>
+</div>
+<span class="font-label-md text-label-md text-primary">53% Occupied</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 53%;"></div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sensors: 60/60 Online</span>
+<button class="font-label-sm text-label-sm font-semibold text-primary hover:text-surface-tint">Manage Slots</button>
+</div>
+</div>
+<!-- Zone C -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-primary transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary">Rooftop</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Zone C (Open Deck)</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-container font-medium">Near Cap</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div>
+<span class="font-numeric-metric text-headline-lg text-on-surface font-bold">12</span>
+<span class="font-body-sm text-body-sm text-tertiary">/ 80 Available</span>
+</div>
+<span class="font-label-md text-label-md text-secondary">85% Occupied</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mt-2">
+<div class="bg-secondary h-full rounded-full" style="width: 85%;"></div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sensors: 79/80 Online</span>
+<button class="font-label-sm text-label-sm font-semibold text-primary hover:text-surface-tint">Manage Slots</button>
+</div>
+</div>
+<!-- Zone D -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-primary transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">EV Fast Charge</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Zone D (EV Hub)</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-fixed text-on-primary-fixed">High Power</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div>
+<span class="font-numeric-metric text-headline-lg text-on-surface font-bold">4</span>
+<span class="font-body-sm text-body-sm text-tertiary">/ 20 Available</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">80% Occupied</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 80%;"></div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chargers: 20/20 Active</span>
+<button class="font-label-sm text-label-sm font-semibold text-primary hover:text-surface-tint">Manage Slots</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN DATA SECTION: RESERVATION ROSTER & LIVE ACTIVITY FEED -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Reservation Roster Table Card (8 cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<!-- Table Header Toolbar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-surface-container">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Live Reservation Roster</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time vehicle check-in log and pending arrivals</span>
+</div>
+<!-- Filter Pills & Search -->
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-tertiary text-sm" data-icon="search">search</span>
+<input class="h-9 pl-9 pr-3 text-body-sm bg-background border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none w-56" placeholder="Search plate, bay or ID..." type="text"/>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg border border-outline-variant/40">
+<button class="px-2.5 py-1 text-label-sm font-label-sm bg-surface-container-lowest rounded shadow-xs font-semibold text-on-surface">All</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm text-tertiary hover:text-on-surface">Active</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm text-tertiary hover:text-on-surface">Scheduled</button>
+</div>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto mt-4">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-container text-label-sm font-label-sm text-tertiary">
+<th class="py-3 px-3">Booking ID</th>
+<th class="py-3 px-3">Motorist Name</th>
+<th class="py-3 px-3">Slot / Zone</th>
+<th class="py-3 px-3">Scheduled Time</th>
+<th class="py-3 px-3">Vehicle Details</th>
+<th class="py-3 px-3 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-3 font-slot-id text-slot-id font-bold text-on-surface">#PW-84920</td>
+<td class="py-3.5 px-3 font-medium text-on-surface">Marcus Vance</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-primary-fixed/20 px-2 py-0.5 rounded text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="local_parking">local_parking</span> A-14
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-mono text-xs">09:00 - 13:00</td>
+<td class="py-3.5 px-3 text-on-surface">Tesla Model 3 <span class="text-tertiary text-xs">(EV)</span></td>
+<td class="py-3.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed/50 text-on-primary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Checked-In
+                      </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-3 font-slot-id text-slot-id font-bold text-on-surface">#PW-84919</td>
+<td class="py-3.5 px-3 font-medium text-on-surface">Sarah Jenkins</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 font-semibold text-secondary bg-secondary-container/40 px-2 py-0.5 rounded text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="local_parking">local_parking</span> B-08
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-mono text-xs">09:30 - 11:30</td>
+<td class="py-3.5 px-3 text-on-surface">Audi Q5</td>
+<td class="py-3.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Reserved (Incoming)
+                      </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-3 font-slot-id text-slot-id font-bold text-on-surface">#PW-84918</td>
+<td class="py-3.5 px-3 font-medium text-on-surface">David Chen</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 font-semibold text-primary bg-primary-fixed/20 px-2 py-0.5 rounded text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="local_parking">local_parking</span> A-02
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-mono text-xs">08:00 - 16:00</td>
+<td class="py-3.5 px-3 text-on-surface">Ford F-150 Lightning <span class="text-tertiary text-xs">(EV)</span></td>
+<td class="py-3.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed/50 text-on-primary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Checked-In
+                      </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-3 font-slot-id text-slot-id font-bold text-on-surface">#PW-84915</td>
+<td class="py-3.5 px-3 font-medium text-on-surface">Elena Rostova</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 font-semibold text-secondary bg-secondary-container/40 px-2 py-0.5 rounded text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="local_parking">local_parking</span> C-22
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-mono text-xs">10:00 - 14:00</td>
+<td class="py-3.5 px-3 text-on-surface">BMW i4</td>
+<td class="py-3.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Scheduled
+                      </span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-75">
+<td class="py-3.5 px-3 font-slot-id text-slot-id font-bold text-tertiary">#PW-84911</td>
+<td class="py-3.5 px-3 font-medium text-on-surface">Robert Garcia</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 font-medium text-tertiary bg-surface-container px-2 py-0.5 rounded text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="local_parking">local_parking</span> A-07
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-tertiary font-mono text-xs">07:30 - 09:30</td>
+<td class="py-3.5 px-3 text-on-surface-variant">Honda Accord</td>
+<td class="py-3.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Vacated
+                      </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Table Pagination Footer -->
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-surface-container text-body-sm text-on-surface-variant">
+<span>Showing <strong>5</strong> of <strong>24</strong> active reservations</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 text-label-sm font-label-sm bg-surface-container-lowest border border-outline-variant rounded hover:bg-surface-container disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 text-label-sm font-label-sm bg-surface-container-lowest border border-outline-variant rounded hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+<!-- Live Facility Activity Feed (4 cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Facility Event Feed</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Automated gate &amp; sensor telemetry</span>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="stream">stream</span>
+</div>
+<!-- Feed Timeline -->
+<div class="flex flex-col gap-4 mt-5 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container">
+<!-- Event 1 -->
+<div class="flex items-start gap-4 relative">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-primary z-10 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-xs" data-icon="sensors">sensors</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Gate 2 Entry Detection</span>
+<span class="text-label-sm text-tertiary font-mono">09:41 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Bay A-14 occupied • RFID Tag verified for #PW-84920</span>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex items-start gap-4 relative">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-secondary z-10 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-xs" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Online Booking Confirmed</span>
+<span class="text-label-sm text-tertiary font-mono">09:38 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">New reservation created for Zone B by app user</span>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex items-start gap-4 relative">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary z-10 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-xs" data-icon="cleaning_services">cleaning_services</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Zone B Sweep Complete</span>
+<span class="text-label-sm text-tertiary font-mono">09:30 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated scrub bot returned to dock bay</span>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="flex items-start gap-4 relative">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-primary z-10 ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-xs" data-icon="ev_station">ev_station</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">EV Fast Charger Engaged</span>
+<span class="text-label-sm text-tertiary font-mono">09:12 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Bay D-03 delivering 150 kW DC charging</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<button class="w-full py-2 bg-surface-container-low hover:bg-surface-container rounded-lg font-label-md text-label-md text-on-surface font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="history_toggle_off">history_toggle_off</span>
+<span>Open Full Telemetry Journal</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SHARED COMPONENT: FOOTER -->
+<footer class="w-full mt-auto bg-surface border-t border-outline-variant/60">
+<div class="w-full max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">PARKWISE</span>
+<span class="text-on-surface-variant text-body-sm">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2025 PARKWISE Mobility Systems Inc. All rights reserved.</span>
+</div>
+<div class="flex flex-wrap items-center gap-5 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Bay Blueprint API</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Enterprise SLA</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Facility Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Security Compliance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Dispatch Contact</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Lightweight Inline JS for Micro-Interactions & Live Clock Simulation -->
+<script>
+    function updateClock() {
+      const now = new Date();
+      const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        timeZoneName: 'short' 
+      };
+      const formatted = now.toLocaleDateString('en-US', options);
+      const ticker = document.getElementById('liveTicker');
+      if (ticker) {
+        ticker.textContent = `Live Sync • ${formatted}`;
+      }
+    }
+    setInterval(updateClock, 1000);
+  </script>
+</body></html>
